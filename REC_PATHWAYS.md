@@ -174,4 +174,41 @@ val widgetRequest = WidgetRequest()
 ```
 Note: Other parameters same as Item-based Widget API
 
+### Visual Search
+
+1. Upload Image API
+```
+val result = pathwaysApi?.uploadImageForVisualSearch("<WIDGET_ID>", inputStream, "test.png")
+
+    if (result is ImageUploadResponse) {
+    //gets required response in response object of type ImageUploadResponse
+        val imageId = result.response?.imageId ?: ""
+        // use the imageId value to create WidgetRequest object
+    }
+    else if (result is BrApiError) {
+         val error = response as BrApiError
+        // if the API fails, handle error here.
+    }
+```
+
+2. Visual Search API
+
+Create the object of WidgetRequest for the request parameter to be passed to the Visual Search Widget API
+with different types of fields supported.
+
+```
+val widgetRequest = WidgetRequest()
+        .url("https://www.example.com")
+        .fields(listOf("pid", "title", "brand", "price", "thumb_image"))
+        .imageId(imageId)
+
+ val response = recsAndPathwaysApi?.visualSearchWidgetApi("<WIDGET_ID>", widgetRequest)
+        if(response is RecsAndPathwaysResponse) {
+              //gets required response in response object of type RecsAndPathwaysResponse
+        } else {
+            val error = response as BrApiError
+        // if the API fails, handle error here.
+        }
+```
+For more information, please refer to the [Visual Search APIs](https://documentation.bloomreach.com/discovery/reference/visual-search-apis) page.
 
