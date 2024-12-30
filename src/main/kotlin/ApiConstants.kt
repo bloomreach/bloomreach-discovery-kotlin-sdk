@@ -61,4 +61,20 @@ internal object ApiConstants {
 
     const val IMAGE_ID = "image_id"
 
+    //for Loomi Search
+    const val QUERY_SEARCH_MODE = "query.search_mode"
+    const val VECTOR_SEARCH_TEMPERATURE = "vector_search.temperature"
+
+    //for API ranking rules
+    const val BOOST = "boost"
+    const val BURY = "bury"
+    const val LOCK = "lock"
+    const val ADD_TO_RECALL = "add_to_recall"
+    const val SOFT_BOOST = "soft_boost"
+    const val SOFT_BURY = "soft_bury"
+    const val INCLUDE = "include"
+    const val EXCLUDE = "exclude"
+
+    const val FACET_VERSION = "facet.version"
+
 }
